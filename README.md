@@ -1,2 +1,1 @@
-# 991CN-X-Decompilation
-991CN X Decompilation
+# 991CN X & 991CN CW Decompilation
