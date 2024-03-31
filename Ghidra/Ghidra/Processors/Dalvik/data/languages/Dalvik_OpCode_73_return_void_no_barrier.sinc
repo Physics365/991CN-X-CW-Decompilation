@@ -1,7 +1,0 @@
-#------------------------------------------------------------------------------------
-# V(0x73, RETURN_VOID_NO_BARRIER, "return-void-no-barrier", k10x, false, kNone, kReturn, kVerifyNone) \
-
-:return_void_no_barrier  is  inst1=0x73 & inst1_padding
-{
-	return [sp];
-}

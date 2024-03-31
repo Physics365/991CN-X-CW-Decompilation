@@ -1,5 +1,0 @@
-<patternconstraints>
-  <language id="avr8:*:*:*">
-    <patternfile>AVR8_patterns.xml</patternfile>
-  </language>
-</patternconstraints>
