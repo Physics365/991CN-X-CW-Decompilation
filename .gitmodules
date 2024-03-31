@@ -1,3 +1,6 @@
 [submodule "模拟器/CasioEmuNeo"]
 	path = 模拟器/CasioEmuNeo
 	url = https://github.com/qiufuyu123/CasioEmuNeo.git
+[submodule "模拟器/CasioEmuX"]
+	path = 模拟器/CasioEmuX
+	url = https://github.com/Xyzstk/CasioEmuX.git

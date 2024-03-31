@@ -1,5 +1,0 @@
-models/*/*.bin
-models/*/*.txt
-*.exe
-.vscode/
-.vs/
