@@ -1,5 +1,7 @@
 # 991CN X & 991CN CW Decompilation
 
-This is a repository for decompiling data for Casio 991CN X and 991CN CW.
+这是一个整理Casio CW i代和CW ii代机型研究的存储库。
 
-Note, please download and configure **xmake, tdm-gcc, mingw64 and java** first.
+## 致谢/参考
+* fx-es(ms)吧 (故事的开始)[fx-es(ms)](https://tieba.baidu.com/fx-es(ms))
+* Casio外国论坛 [Universal Casio Forum](https://casiocalc.org)  [CASIO calculators exploits](https://casiocalc.wikidot.com)
