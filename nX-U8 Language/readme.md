@@ -1,6 +1,6 @@
 # nX-U8 Language for Ghidra
-This is a language file of nX-U8 series made by Baidu Forum user [@EwTE_H](https://tieba.baidu.com/home/main?id=tb.1.ba0c2f47.avRm7aRqck4QgwYYgIf3eA&fr=pb&ie=utf-8).
+这是百度贴吧用户 [@EwTE_H](https://tieba.baidu.com/home/main?id=tb.1.ba0c2f47.avRm7aRqck4QgwYYgIf3eA&fr=pb&ie=utf-8)创建的nX-U8语言文件
 
-This folder should be placed at `\Ghidra\processors`,and should be renamed as `nxu8`
+这个文件夹应被置于 `\Ghidra\processors`,并重命名为 `nxu8`
 
-Here is the webpage of the original artical:[用Ghidra分析卡西欧源代码](https://tieba.baidu.com/p/8938265174)
+这是原文链接:[用Ghidra分析卡西欧源代码](https://tieba.baidu.com/p/8938265174)
