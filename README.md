@@ -1,4 +1,4 @@
-# 991CN X & 991CN CW Decompilation
+# 991CN X & 991CN CW 逆向工程
 
 这是一个整理Casio CW i代和CW ii代机型研究的存储库。
 
