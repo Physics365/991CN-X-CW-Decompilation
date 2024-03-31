@@ -1,3 +1,0 @@
-macro conditionalAssign(dest, cond, trueVal, falseVal) {
-    dest = zext(cond) * trueVal | zext(!cond) * falseVal;	
-}
