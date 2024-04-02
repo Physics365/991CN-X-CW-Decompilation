@@ -1,9 +1,9 @@
 [submodule "模拟器/CasioEmuNeo"]
-	path = 模拟器/CasioEmuNeo
+	path = 模拟器及资源/模拟器/CasioEmuNeo
 	url = https://github.com/qiufuyu123/CasioEmuNeo.git
 [submodule "模拟器/CasioEmuX"]
-	path = 模拟器/CasioEmuX
+	path = 模拟器及资源/模拟器/CasioEmuX
 	url = https://github.com/Xyzstk/CasioEmuX.git
 [submodule "字体/显示字体/ClasswizDisplayFont"]
-	path = 字体/显示字体/ClasswizDisplayFont
+	path = 模拟器及资源/字体/显示字体/ClasswizDisplayFont
 	url = https://github.com/Wenti-D/ClasswizDisplayFont.git
