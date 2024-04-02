@@ -1,0 +1,665 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>第一章 字符与字符转换器</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='第一章--字符与字符转换器'><span>第一章  字符与字符转换器</span></h1><p><span>从本章开始的各章都围绕着第一个主题：输入区。本章将要讲解</span><strong><span>字符</span></strong><span>和</span><strong><span>光标</span></strong><span>的基础知识。</span></p><h2 id='字符'><span>字符</span></h2><p><span>字符的概念相信大家都已明白。字符在内存中储存，对卡西欧的程序员来说，最自然的想法就是每个字符占一字节，按序储存。但是，一个字节的数据只有256种可能。上代ES型号里，就采取了每个字符一字节的办法，结果把控制字符、数字、变量、函数、算符，还有科学常数、单位换算全都挤在256个格子里，塞得满满当当。而现在的型号，有更多的科学常数和单位换算（日版有200多个单位换算！）</span></p><p><span>那么单个字节是无论如何也塞不下了。那么是不是要全部改为双字节呢？那也不至于，因为双字节有65536种可能，用不了这么多，而且它会多占用一倍的空间。于是卡西欧的程序员采取了一种折中的办法，即同时采取单字节和双字节的字符。为了区分，规定双字节字符的第一个字节以 </span><strong><span>F</span></strong><span> 开头。以下是一些例子：</span></p><figure class='table-figure'><table><thead><tr><th style='text-align:center;' ><span>31</span></th><th style='text-align:center;' ><span>FE1A</span></th><th style='text-align:center;' ><span>FD3A</span></th><th style='text-align:center;' ><span>FB1A</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>1</span></td><td style='text-align:center;' ><span>Pa▸atm</span></td><td style='text-align:center;' ><span>r</span><sub><span>e</span></sub></td><td style='text-align:center;' ><span>M+</span></td></tr></tbody></table></figure><p>&nbsp;</p><p><span>特殊地，还要有个特殊字符来标记字符串的结束。它就是字符00。不过，为了方便，程序中许多操作都以字节为单位来进行，此时对程序来说，标记字符串末尾的就是字节00，也就是NUL，不同于字符00。这就导致像FE00这样的字符在程序的不同部分含义不一样，它有时只是一个一般的字符，有时却能标记字符串的结束。一般来说这不要紧，因为这样的字符在正常情况下不会出现；反过来说，异常就出自这种特殊情况。但在探讨异常前，我们要先学习正常情况下各种操作的逻辑。</span></p><hr /><h2 id='编辑器'><span>编辑器</span></h2><p><span>输入区的逻辑分为编辑器和显示器两块，编辑器负责处理增删移插等操作，显示器负责把内存中的字符串打印在屏幕上。两块逻辑之间相对独立。</span>
+<span>显示器的逻辑是：</span></p><ul><li><p><span>从字符串的开头开始。</span></p></li><li><p><span>如果光标在这里，那么在屏幕上显示光标。</span></p></li><li><p><span>取一个字节，如果它以F开头，就再取一个，组成一个字符。</span></p></li><li><p><span>如果这个字符是00，那么退出。（在线性模式中，只要这个字符包含NUL就退出，如FE00）</span></p></li><li><p><span>否则，在屏幕上显示这个字符，并向右移动相应字节数。</span></p></li><li><p><span>回到第2步。</span></p></li></ul><p><span>阅读逻辑可以发现，如果光标插在双字节字符的中间，或者在字符00的右边（线性模式中，NUL右边），那么显示器永远找不到光标。在数学模式，光标会停在之前的位置不动（光标默认位置在最左边，如果按第一个键的时候就没找到光标，它就会停在默认位置）；在线性模式，光标会移到最左边。此时我们说“光标卡住了”，光标显示的位置不能反映它在内存中的实际位置。同学们，这时候千万别被它骗了！</span></p><p><span>移动光标的逻辑是：</span></p><p><mark><span>左键</span></mark></p><ul><li><p><span>如果在历史记录中或在数学模式且光标在开头，那么移到第一个NUL处。</span></p></li><li><p><span>否则，如果前面第二个字节以F开头，就左移2字节，反之移1字节。</span></p></li></ul><p><mark><span>右键</span></mark></p><ul><li><p><span>如果在历史记录中或在数学模式且光标在NUL处，那么移到开头。</span></p></li><li><p><span>否则，如果当前字节以F开头，就右移2字节，反之移1字节。</span></p><p><span>  </span></p></li></ul><p><span>因此，一般来说，不可能把光标塞到双字节字符中间。有一种情况除外：如果某个双字节字符的两个字节都以F开头，而它右边有个单字节字符时</span>
+<span>        Fx Fx xx|</span>
+<span>按←，光标会以为它前面是个双字节字符，于是移动两个字节</span>
+<span>        Fx|Fx xx</span>
+<span>这时，光标就插在双字节字符中间了。但是，这样的字符不能直接打出。</span>
+<span>字符转换器需要用到字符“lbf/in2▸kPa”（FE23）（shift8↓27）。输入1和lbf/in2▸kPa，按=，↑。由于某些原因（今后会讲），在历史记录里，字节23会被吃掉，只剩下字节FE，和后面的NUL拼起来，就是</span>
+<span>        31 FE 00 00 ... </span>
+<span>（字符FE00没有宽度看不到，所以显示出来只有一个1）按←，光标移动到第一个NUL处，也就是FE后面：</span>
+<span>        31 FE|00 00 ...</span>
+<span>为什么光标好像在1上？仔细看，这里它就位于双字节字符FE00中间，所以卡住了。不要管它，接下来，输入字符“1”（31）：</span>
+<span>        31 FE 31|00 ...</span>
+<span>此时会显示“1l.y.▸m”。FE31这个字符本来是打不出的，但被我们通过字符转换器得到了。这就是字符转换器。</span>
+<span>如果在刚才输入第二个字符“1”的位置输入双字节字符会发生什么？输入字符“Pa▸kgf/in</span><sup><span>2</span></sup><span>”（FE20）（shift8↓26）：</span>
+<span>        31 FE FE 20|00 00 ...</span>
+<span>此时会显示“1Unknowi”，其中字符Unknow就是FEFE。按←，光标向左移动一个字符（FE20），看起来好像没有移动：</span>
+<span>        31 FE|FE 20 00 00 ...</span>
+<span>这是因为它插在双字节字符中间，卡住了。再按一下←才会移动到字符FEFE上：</span>
+<span>        31|FE FE 20 00 00 ...</span>
+<span>按→，向右移动一个字符（FEFE），到字符“i”（20）上：</span>
+<span>        31 FE FE|20 00 00 ...</span>
+<span>然后就可以删掉字符FEFE了。你看，计算模式中本来不能打出i，但是它也可以用字符转换器得到。回到上一步，在字符FEFE和字符20之间插入字符“Ran#”（FD18），接下来按←：</span>
+<span>        31 FE FE FD 18|20 00 00 ...</span>
+<span>        31 FE FE|FD 18 20 00 00 ...</span>
+<span>输入字符“1”：</span>
+<span>        31 FE FE 31|FD 18 20 00 ...</span>
+<span>现在按DEL会删除双字节字符FE31：</span>
+<span>        31 FE|FD 18 20 00 20 00 ...</span>
+<span>你看，输入了31，却删除了FE31。删除字符的方式和按←差不多，但是注意如果前一个字节以F开头，就会把这个字节以及后一个字节都删掉，比如31 FE|FD 32和31 FE FD|32删除都得到31 32。此时显示“1（一坨）@”，“（一坨）”就是FEFD。光标没有移动，是因为它在双字节字符FEFD中间。如果此时想删除单字节字符18（“@“），那是行不通的，因为前面有FD，会被识别成双字节字符FD18。必须把它们隔开才能删除字符18。按←再按→，把光标移动到18上：</span>
+<span>        31 FE FD|18 20 00 20 00 ...</span>
+<span>然后输入任意双字节字符（以“Ran#”（FD18）为例）：</span>
+<span>        31 FE FD FD 18|18 20 00 ...</span>
+<span>这样18和FEFD隔开了，就可以正常地删除。把字符18（“@”）和前面的FD18（“Ran#”）都删了，使FEFD和20接触：</span>
+<span>        31 FE FD|20 00 20 00 00 ...</span>
+<span>按→再按←，光标移动到FEFD中间：</span>
+<span>        31 FE|FD 20 00 20 00 00 ...</span>
+<span>现在输入1：</span>
+<span>        31 FE 31|FD 20 00 00 00 ...</span>
+<span>此时显示的是“1l.y.▸man”，把其他字符都删掉，就获得了字符“an”（FD20）。这个字符将来用处很大。</span></p><hr /><h2 id='本教程所有例题请读者先尽力独立完成再查看解析以达到最佳学习效果'><strong><mark><span>本教程所有例题请读者先尽力独立完成再查看解析以达到最佳学习效果。</span></mark></strong></h2><p>&nbsp;</p><p><mark><span>例1</span></mark><span> </span><strong><span>尝试打出字符FD31。</span></strong></p><p><strong><span>参考答案：m</span><sub><span>n</span></sub></strong></p><p><strong><span>参考思路：</span></strong></p><p><strong><span>法一（不推荐)</span></strong><span>：查字符表得FD31为shift732</span>
+<span>此法应用于能直接打出的字符较为方便，但对大量无法直接打出的字符无能为力。</span></p><p><strong><span>法二</span></strong><span>：已知FD18为Ran#可直接打出，为得到FD31，需设法将光标移至FD与18之间以插入31。由上文可知，若能得到FEFD，就可以将光标移至目标位置。由本节开头得操作可得31FE，请读者熟记这个操作，这是日后许多编辑操作的起点。在31 FE后输入FD18，←←→即可使光标到达目标位置。输入1，←，再输入1，得：</span>
+<span>          31 FE 31|FD 31 18</span>
+<span>删去FE31即得FD31。</span></p><p><mark><span>例2</span></mark><span> </span><strong><span>尝试打出字符FB31。</span></strong></p><p><strong><span>提示：</span></strong></p><ul><li><p><span>出现语法错误不要惊慌，按AC ←即可回到最左侧。</span></p></li><li><p><span>此题完成过程中可能出现字符FEFB，该字符不可见，请谨慎完成后续操作。</span></p></li><li><p><span>先按sto再按x即可输入FB18。</span></p></li></ul><p><strong><span>参考答案：</span><sup><span>1</span></sup></strong></p><p><strong><span>参考思路：</span></strong><span>上文的法一已不可用，本题思路与上文法二一致。先输入31 FE FB 18，此时会发生语法错误，但AC →仍可继续编辑。如果你还记得说明书的话，你应该知道，已经算过一次的式子，不管有没有算出来，AC ←或→都能重新呼出。再按→→，光标位于FB|18之间，依次输入1，←，1即得FB31。</span></p><hr /><p><mark><span>例题总结</span></mark></p><p><span>类似上述两例的问题都可通过类似的思路得到结果：</span></p><ul><li><p><span>使所需字符相邻，如例一中使FD与31相邻</span></p></li><li><p><span>拆除原有的双字节字符以得到目标字符，如例二中原本FEFB为一个双字节字符，我们通过在FE与FB之间插入31使FB与后面的31结合得到目标字符。</span></p></li></ul><hr /><p><span>两个字节都是F开头的字符也可以当做字符转换器，因此可以多次使用。例如，要打出3A和3B，可以用FD3A（shift737）和FD3B（shift738）。在字符转换器中先输入FD3B：</span>
+<span>            31 FE FD 3B|00 00 00 00 ...</span>
+<span>←←→移到FD和3B之间，输入FD3A，然后←，输入1：</span>
+<span>            31 FE FD FD 3A|3B 00 00 ...</span>
+<span>            31 FE FD 31|FD 3A 3B 00 ...</span>
+<span>按DEL删除FD31：</span>
+<span>            31 FE|FD 3A 3B 00 3B 00 ...</span>
+<span>此时，只要再删掉FEFD，就获得了3A（“</span><strong><span>A</span></strong><span>”）和3B（“</span><strong><span>B</span></strong><span>”）。用这种方法可以连续卡出多个字符。</span></p><p><mark><span>例3</span></mark><span> </span><strong><span>尝试打出字符3A到3F。（FD3A到FD3F分别为shift737，...，shift73C）</span></strong></p><p><strong><span>参考思路：</span></strong><span>同上，操作完一次后不要删除FEFD，而是←→移到FD的后面，此时即可进行下一步操作。多次重复就能获得所有需要的字符。</span></p><p><mark><span>例4</span></mark><span> </span><strong><span>综合运用上述内容尝试打出3A FD20 3B（表现为AanB）</span></strong></p><p><strong><span>参考答案：转换器，FE3B ←←→ FE20 ← 1 DEL ←→ FD18 ← 1 DEL ←→ Ran# → DEL DEL →← FE3A</span></strong></p><p><strong><span>参考思路：</span></strong><span>易知所有的字符转换操作都只能围绕字符转换器进行，为按顺序得到答案，我们需要依次得到3B，20，FD，3A；为得到这四个字节，我们依次在FE右侧输入FE3B（shift738），FE20（shift8↓26），FD18（Ran#），FE3A（shift737）；其余的操作则为输入保护字符，以防字符转换器或者所需字节和其他字节结合无法使用。</span></p><hr /><h1 id='本章完'><span>本章完</span></h1></div></div>
+</body>
+</html>
