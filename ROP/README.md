@@ -7,5 +7,6 @@ CASIO Classwiz 系列计算器采用的是 nX-u8 系列的处理器芯片和指�
 > <p align="right">——知乎 @Qesole</p>
 
 这里存储了一些ROP函数以及常用地址。（待补）
+[ROP例子/编写示例](./ROPCodes/README.md)
 
 ROP教程，请参看 `教程` 文件夹中 @EwTE_H 的《991CN X (VerC) 异常教程》或参考 @qiufuyu123 的知乎文章[《fx-991cnx 计算器：利用ROP漏洞执行任意代码》](https://zhuanlan.zhihu.com/p/618704031)。
