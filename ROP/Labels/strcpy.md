@@ -1,4 +1,14 @@
 # strcpy(0:D070)
+## 函数原型
+```c
+char * // ER0
+strcpy (
+    char *destination, // ER0
+    const char *source // ER2
+);
+```
+## 功能描述
+这个函数的作用是将`source`指向的nul结尾字符串复制到`destination`指向的位置。复制完成后，函数返回`destination`，即复制的字符串的起始地址。
 ## 汇编代码
 ```assembly
 0D070   6E F8              PUSH    XR8
@@ -17,29 +27,18 @@
 0D08A   2E F8              POP     XR8
 0D08C   1F FE              RT
 ```
-
 ## C语言反编译（仅供参考）
 ```c
-char * // ER0
-strcpy (
-    char *destination, // ER0
-    const char *source  // ER2
-) {
-  char c;
-  char *ptr = destination;
-  do {
-    c = *source;
-    *ptr = c;
-    source ++;
-    ptr ++;
-  } while (c != '\0');
-  return destination;
-}
+char c;
+char *ptr = destination;
+do {
+  c = *source;
+  *ptr = c;
+  source ++;
+  ptr ++;
+} while (c != '\0');
+return destination;
 ```
-
-## 代码描述
-这个函数的作用是将`source`指向的nul结尾字符串复制到`destination`指向的位置。复制完成后，函数返回`destination`，即复制的字符串的起始地址。
-
 ## ROP 示例
 ### 内存注入
 ROP字符串：{n-76个数字}<sup>*</sup>  e2 30 31 30 __ __ {2位地址} <0x4c+n><sup>**</sup> d1 30 30 a2 d5 70 d0 30 30 38 1d 32 30 30 30 33 23
