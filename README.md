@@ -20,8 +20,9 @@
 1. 选一个合适的位置，执行
 
        git clone https://github.com/Physics365/991CN-X-CW-Decompilation.git --recursive
+2. 从@qiufuyu123 的[云盘](https://casio.123a.club/)下载你所需的LFS文件
 
-2. 完事。
+3. 完事。
 
 ## 致谢/参考
 
