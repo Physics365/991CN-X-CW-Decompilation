@@ -6,12 +6,21 @@
 
 ## 用法
 
-
+### Windows
 ```
 python .exe .\asm.py xxx
-
+```
 例子:
+```
 python.exe .\asm.py .\Examples\Single-Line-Print.asm
+```
+### Linux
+```
+python ./asm.py xxx
+```
+例子:
+```
+python ./asm.py ./Examples/Single-Line-Print.asm
 ```
 
 ## ROP示例(汇编器参考语法)
