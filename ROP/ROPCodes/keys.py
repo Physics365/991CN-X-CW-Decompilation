@@ -23,6 +23,7 @@ def byte2keys(b):
     if len(b) != 2:
         return '',False
     y,x = 0,0
+
     if b[0] >= 'a':
         y = ord(b[0]) -ord('a')+10
     elif '0' <= b[0] <= '9':
@@ -44,3 +45,46 @@ def byte2keys(b):
         tmp_uglyc.append(str(b))
         return '<'+b+'>',True
     return key_codes[y][x],True
+
+def b2k(l):
+    if l[0]>9:
+        l[0]=chr(ord('a')+l[0]-10)
+    else:
+        l[0]=str(l[0])
+    if l[1]>9:
+        l[1]=chr(ord('a')+l[1]-10)
+    else:
+        l[1]=str(l[1])
+    return byte2keys((l[0])+(l[1]))[0],str(l[0])+str(l[1])
+
+def ascii2key(char):
+    if ord(char)>=ord('0') and ord(char)<=ord('9'):
+        return b2k([3,ord(char)-ord('')])
+    if char>='A' and char<='O':
+        return b2k([4,ord(char)-ord('A')+1])
+    if char>='P' and char<='Z':
+        return b2k([5,ord(char)-ord('P')])
+    if char>='a' and char<='o':
+        return b2k([6,ord(char)-ord('a')+1])
+    if char>='p' and char<='z':
+        return b2k([7,ord(char)-ord('p')])
+    if char == ' ':
+        return b2k([2,0])
+    
+def input2str(sz):
+    target = input("input string :")
+    print(target[0:sz])
+    dump = ''
+    dumphex = ''
+    n = 0
+    for c in target:
+        a=ascii2key(c)
+        dump+=a[0]+' '
+        dumphex+=a[1]+' '
+        n+=1
+        if n >= sz:
+            break
+    if n<sz:
+        dump+='i '*(sz-n)
+        dumphex+='20 '*(sz-n)
+    return dump,dumphex

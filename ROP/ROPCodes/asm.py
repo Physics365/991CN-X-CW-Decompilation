@@ -100,6 +100,16 @@ def process(strs,fstpass=True):
                 dump+='0 '
                 hex_dump+='30 '
             base_addr+=i
+        elif line.startswith('need'):
+            i,p = next_arg(line)
+            if p != '':
+                print(p)
+                exit()
+            #print('space '+str(i)+' bytes.')
+            dp,dphex = keys.input2str(i)
+            dump+=dp
+            hex_dump+=dphex
+            base_addr+=i
         elif line.startswith('hex') and line[3] == ' ':
             tokens = line[3:]
             #print(tokens)
