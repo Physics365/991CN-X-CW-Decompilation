@@ -195,3 +195,4 @@ if __name__ == '__main__':
     c = readall(path)
     process(c)
     process(c,False)
+    # keys.assist_ugly()

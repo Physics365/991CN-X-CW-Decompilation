@@ -29,6 +29,7 @@ python ./asm.py ./Examples/Single-Line-Print.asm
 - [双行拼字](./Examples/Double-Line-Print.asm)
 - [三行拼字](./Examples/Triple-Line-Print.asm)
 - [循环/按键/拼字](./Examples/Loop.asm)
+- [无限字符滚动拼字（需要预先持久化数据）](./Examples/RollingPrint.asm)
 
 ## ROP持久化保存
 - 什么？你嫌打一遍ROP拼字耗时太长？   

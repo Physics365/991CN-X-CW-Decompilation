@@ -19,6 +19,13 @@ key_codes=[
 ]
 
 tmp_uglyc=[]
+
+def assist_ugly():
+    print("Special Characters "+str(len(tmp_uglyc))+":")
+    for a in tmp_uglyc:
+        print(a,end=' ')
+    print("\n")
+
 def byte2keys(b):
     if len(b) != 2:
         return '',False

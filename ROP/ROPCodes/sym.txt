@@ -6,9 +6,10 @@
 203C8       smart_strcpy
 203D6       smart_strcat
 @203B8       smart_strlen 
-
+2235a       line_print
 220fe       line_print_col0
-
+;FE 08 km->mile
+22108       line_print_Col3
 @221AC       printline 
 
 22492        hex_byte
@@ -29,7 +30,7 @@ $081A2       str_decompress_print
 ;convert read_phy_key result (er0) to key code
 252dc       key_cvt  
 
-119B6       setlr
+119B6       setlr_cmp
 
 @0916A       delay
 093FE       _start
@@ -58,15 +59,16 @@ $081A2       str_decompress_print
 084D8		char_get_14      
 09060       assign_var
 ; er0: char, er2: output adr
-
+07eae       screencls
 ;dbd0       有意思
 ;           0f 0e d9 0c 0b 0a 09 08 07 06
 [GADGETS]
- 
+091d8       setlr
 08f22       r0=0,[er8]+=er2,pop xr8
 203D2	    st r2,[er0]
 130E2       pop QR0
 121a8       pop er0
+08fc2       pop er2
 2208a       pop xr0
 26920       pop xr8
 187D6       pop er4
@@ -90,7 +92,8 @@ $081A2       str_decompress_print
 15ee4       mov r2,r0,pop er0
 0ec6c       mov er0,1
 09a1a       mov er2,1
-
+1DA72       mov r0,0
+; ^^ rt DA-->OPTN 角度单位 r
 1fbe0       mov er0,er2
 14b14       mov er2,er0
 1e768       mov er0,er4,pop er4
