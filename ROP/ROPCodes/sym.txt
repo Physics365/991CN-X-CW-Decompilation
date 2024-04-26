@@ -2,15 +2,17 @@
 ; MODIFY CAREFULLY!
 
 086f0       memcpy
-
+08fbe       memset
 203C8       smart_strcpy
 203D6       smart_strcat
 @203B8       smart_strlen 
 2235a       line_print
+221b2       smallprint
 220fe       line_print_col0
 ;FE 08 km->mile
 22108       line_print_Col3
 @221AC       printline 
+08c5a       printmultiline
 
 22492        hex_byte
 
@@ -63,22 +65,32 @@ $081A2       str_decompress_print
 ;dbd0       有意思
 ;           0f 0e d9 0c 0b 0a 09 08 07 06
 [GADGETS]
+0b59a       cmp_gt
+13ad8       load_table
+090b0       mov er0,sp 
+26318       mov r1,0
+09d4c       sub r0,r8,pop er8
+08f20       er2+=er10,r0=0,[er8]+=er2,pop xr8
 091d8       setlr
+08f26       er2+=er10,st er2,[er8],pop xr8
 08f22       r0=0,[er8]+=er2,pop xr8
 203D2	    st r2,[er0]
+18bce       *er0=r2,r0=0
 130E2       pop QR0
 121a8       pop er0
 08fc2       pop er2
-2208a       pop xr0
+16134       pop xr0
 26920       pop xr8
 187D6       pop er4
 0d06c       pop er8
 08f44       pop qr8
 18FE6       pop er12
 20d72       pop ER14
+14c58       pop xr4,pop qr8
 20d70       jpop er14
 12d34       jpop qr8
 2237a       jpop qr80
+23332       mov r0,r11,jpop xr4,qr8
 222AC       nop
 09D22       ENTER
 13CD0       LEAVE
@@ -93,6 +105,7 @@ $081A2       str_decompress_print
 0ec6c       mov er0,1
 09a1a       mov er2,1
 1DA72       mov r0,0
+18812       mov r0,0,pop er2
 ; ^^ rt DA-->OPTN 角度单位 r
 1fbe0       mov er0,er2
 14b14       mov er2,er0
@@ -114,6 +127,8 @@ $081A2       str_decompress_print
 1a45e       and r1,15
 20840       and r1, 15, sll r0, 4, or r1, r0
 187e2       add er0,er2
+179bc       mov er14,er0,pop xr0
+08f28       st er2,[er8],pop xr8
 ;13aa6  add er0 er2
 ;14f0c  ~
 ;187e2  ~
