@@ -304,6 +304,12 @@ class ROPAssembler():
                 if not self.is_second_pass:
                     self.labels.append([name,self.segment_addr])
             else:
+                res = re.search(r'\(.*\)',src)
+                param:str = ''
+                if res:
+                    param = res.group()
+                if param != '':
+                    src = src.replace(param,'')
                 name = src
                 sym = self.find_symbol(name)
                 if sym[0] == '':
@@ -311,6 +317,10 @@ class ROPAssembler():
                 if self.is_second_pass:
                     self.output.append_sym_adr(sym[1],self.segment_addr)
                 self.segment_addr+=4
+                if param != '':
+                    param = param.removeprefix('(').removesuffix(')')
+                    param = param.strip().lower()
+                    self.consume_hex_literal(param)
                 
                 
     

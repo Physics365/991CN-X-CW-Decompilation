@@ -26,7 +26,6 @@
 
 29D5C       get_string_constant
 @07EAC       fill_screen
-$081A2       str_decompress_print
 221c4       waitkey
 @0F746       read_key
 ;convert read_phy_key result (er0) to key code
