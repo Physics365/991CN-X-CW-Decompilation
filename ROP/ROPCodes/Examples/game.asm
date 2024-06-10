@@ -38,7 +38,7 @@
 ; use python.exe .\asm.py .\xxx.asm 
 ; to compile if u want
 
-#org d830
+org d830
 init_map:
     pop xr0
     hex 30 ea 2e 2e
