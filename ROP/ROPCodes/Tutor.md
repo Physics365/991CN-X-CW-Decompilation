@@ -65,8 +65,15 @@ read_key
 带参数个数的函数标签：在地址后面跟括号，里面写调用这个标签时pop的字节数。pop pc不算在内。例如pop qr0的标签可以写作`def 130e2(8) pop qr0`。在程序中调用这类函数标签，后面必须跟括号，里面是相应数目的字节。例如`pop qr0 (31 32 .. .. .. .6 7. fe)`。
 
 ## 5.使用asm.py
+Windows:
 ```
 python3.exe .\asm.py xxx (你想编译的文件）
 python3.exe .\asm.py xxx (你想编译的文件）-min  ;原封不动输出 hex中的 ..  而不是自动替换
+
+```
+Linux:
+```
+python3 ./asm.py xxx (你想编译的文件）
+python3 ./asm.py xxx (你想编译的文件）-min  ;原封不动输出 hex中的 ..  而不是自动替换
 
 ```
