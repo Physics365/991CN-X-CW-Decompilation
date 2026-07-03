@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<compiler_spec>
+  <stackpointer register="SP" space="ram" growth="negative" />
+  <global>
+    <range space="ram" />
+    <range space="rom" />
+  </global>
+  <readonly>
+    <range space="rom" />
+  </readonly>
+  <funcptr align="2"/>
+  <returnaddress>
+    <register name="_LR" />
+  </returnaddress>
+  <default_proto>
+    <prototype name="default" extrapop="0" stackshift="0" strategy="register">
+      <input>
+        <pentry minsize="1" maxsize="2" align="1">
+          <register name="ER0"/>
+        </pentry>
+        <pentry minsize="1" maxsize="2" align="1">
+          <register name="ER2"/>
+        </pentry>
+        <pentry minsize="1" maxsize="500" align="2">
+          <addr space="stack"/>
+        </pentry>
+      </input>
+      <output>
+        <pentry minsize="1" maxsize="2">
+          <register name="ER0"/>
+        </pentry>
+      </output>
+      <unaffected>
+        <register name="XR4"/>
+        <register name="XR8"/>
+        <register name="XR12"/>
+        <register name="SP"/>
+      </unaffected>
+    </prototype>
+  </default_proto>
+  <callfixup name="f_entrance_9d22">
+    <target name="__entrance9d22"/>
+    <pcode>
+      <body><![CDATA[
+      SP = SP - 8;
+	    *[ram]:8 SP = QR8;
+      SP = SP - 4;
+	    *[ram]:4 SP = XR4;
+      ER14 = SP;
+      ]]></body>
+    </pcode>
+  </callfixup>
+  <prefersplit style="inhalf">
+    <register name="xr0"/>
+    <register name="xr4"/>
+    <register name="xr8"/>
+    <register name="xr12"/>
+  </prefersplit>
+</compiler_spec>

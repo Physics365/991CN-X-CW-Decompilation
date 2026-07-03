@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<language_definitions>
+    <language processor="nX-U8"
+              endian="little"
+              size="16"
+              variant="Casio"
+              version="0.0"
+              slafile="nxu8.sla"
+              processorspec="nxu8.pspec"
+              id="nxu8">
+        <description>nX-U8</description>
+        <compiler name="default" spec="nxu8.cspec" id="default"/>
+    </language>
+</language_definitions>
